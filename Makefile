@@ -1,6 +1,6 @@
-CCBASEDIR=/home/vagrant/CHIP-buildroot/output/host/usr
+CCBASEDIR=/usr/bin
 
-CC=$(CCBASEDIR)/bin/arm-linux-gnueabihf-gcc
+CC=$(CCBASEDIR)/gcc
 CFLAGS=-Wall -O -I$(CCBASEDIR)/include
 
 OBJECTS=main.o sqlite3.o
