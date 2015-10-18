@@ -16,7 +16,7 @@ sqlite3* init_wifi_db()
     else
     {
         char *err_msg = NULL;
-        char *sql = "CREATE TABLE AccessPoints(id INTEGER AUTOINCREMENT, Name TEXT);";
+        char *sql = "CREATE TABLE AccessPoints(id INTEGER PRIMARY KEY AUTOINCREMENT, Name TEXT NOT NULL);";
 
         rc = sqlite3_exec(db, sql, NULL, NULL, &err_msg);
 
@@ -34,7 +34,7 @@ sqlite3* init_wifi_db()
 bool insert_access_point(sqlite3* db)
 {
     char *err_msg = NULL;
-    char *sql = "INSERT INTO AccessPoints VALUES ('NewAccessPoint')";
+    char *sql = "INSERT INTO AccessPoints (Name) VALUES ('NewAccessPoint');";
 
     if (sqlite3_exec(db, sql, NULL, NULL, &err_msg) != SQLITE_OK)
     {
