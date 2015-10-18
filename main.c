@@ -16,7 +16,7 @@ sqlite3* init_wifi_db()
     else
     {
         char *err_msg = NULL;
-        char *sql = "CREATE TABLE AccessPoints(id INTEGER PRIMARY KEY AUTOINCREMENT, Name TEXT NOT NULL);";
+        char *sql = "CREATE TABLE IF NOT EXISTS AccessPoints(id INTEGER PRIMARY KEY AUTOINCREMENT, Name TEXT NOT NULL);";
 
         rc = sqlite3_exec(db, sql, NULL, NULL, &err_msg);
 
